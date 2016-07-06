@@ -18,7 +18,7 @@
 	-->
 <style type="text/css">
 	body {
-		background: #15B69A;
+		background: ;
 		margin: 0px;
 		color: #ffffff;
 	}
@@ -30,7 +30,12 @@
 	} 
 	a:hover {
 		text-decoration:underline;
+		color: red;
 	}
+	h1 {
+	color: red;
+	margin: 25px;
+}
 </style>
   </head>
   
@@ -39,8 +44,8 @@
 <div style="font-size: 10pt; line-height: 10px;">
 <c:choose>
 <c:when test="${empty sessionScope.sessionuser }">
-		  <a href="<c:url value='/jsps/user/login.jsp'/>" target="_parent">登录</a> |&nbsp; 
-		  <a href="<c:url value='/jsps/user/regist.jsp'/>" target="_parent">会员</a>
+		  <a class="afont" href="<c:url value='/jsps/user/login.jsp'/>" target="_parent">登录</a> |&nbsp; 
+		  <a   class="afont" href="<c:url value='/jsps/user/regist.jsp'/>" target="_parent">注册 </a>
 
 
 </c:when>

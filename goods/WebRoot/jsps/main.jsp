@@ -36,8 +36,8 @@
 		</td>
 	</tr>
 	<tr>
-		<td style="border-top-width: 0px;">
-			<iframe frameborder="0" src="<c:url value='/Bookservlet?method=findAllBooks'/>" name="body"></iframe>
+		<td >
+			<iframe  src="<c:url value='/Bookservlet?method=findAllBooks'/>" name="body"></iframe>
 		</td>
 	</tr>
 </table>

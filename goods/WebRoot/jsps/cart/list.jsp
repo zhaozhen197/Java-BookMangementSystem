@@ -73,7 +73,25 @@ function setJieSuanStyle(flag) {
 
 
 
-
+/*
+ * 批量删除
+ */
+function batchDelete() {
+	// 1. 获取所有被选中条目的复选框
+	// 2. 创建一数组，把所有被选中的复选框的值添加到数组中
+	// 3. 指定location为CartItemServlet，参数method=batchDelete，参数cartItemIds=数组的toString()
+	var cartItemIdArray = new Array();
+	$(":checkbox[name=checkboxBtn][checked=true]").each(function() {
+		cartItemIdArray.push($(this).val());//把复选框的值添加到数组中
+	});
+	if(cartItemIdArray == "")
+		{
+			alert("请勾选图书！");
+		}
+	else{
+	location = "/goods/BookCartServlet?method=batchDelete&cartItemIds=" + cartItemIdArray;
+	}
+	}
 </script>
   </head>
   <body>
@@ -112,7 +130,7 @@ function setJieSuanStyle(flag) {
 
 	<tr align="center">
 		<td align="left">
-			<input value="12345" type="checkbox" name="checkboxBtn" checked="checked"/>
+			<input value="${bookItem.cartItemId }" type="checkbox" name="checkboxBtn" checked="checked"/>
 		</td>
 		<td align="left" width="70px">
 			<a class="linkImage" href="<c:url value='/Bookservlet?method=loadByBid&bid=${bookItem.book.bid}'/>"><img border="0" width="54" align="top" src="<c:url value='/${bookItem.book.image_b }'/>"/></a>
@@ -121,7 +139,7 @@ function setJieSuanStyle(flag) {
 		    <a href="<c:url value='/Bookservlet?method=loadByBid&bid=${bookItem.book.bid}'/>"><span>${bookItem.book.bname }</span></a>
 		</td>
 		<td>
-			<input class="quantity" readonly="readonly" id="12345Quantity" type="text" value="${bookItem.quantity }"/>
+			<span>${bookItem.quantity }</span>
 		</td>
 		<td>
 			<a href="<c:url value='/BookCartServlet?method=batchDelete&cartItemIds=${bookItem.cartItemId }'/>">归还图书</a>
@@ -129,22 +147,22 @@ function setJieSuanStyle(flag) {
 	</tr>
 
 </c:forEach>
-	
 	<tr>
 		<td colspan="4" class="tdBatchDelete">
-			<a href="javascript:alert('批量删除成功');">批量删除</a>
+			<a href="javascript:batchDelete();">批量归还</a>
 		</td>
+		
 	</tr>
-	<tr>
+	<%-- <tr>
 		<td colspan="7" align="right">
 			<a href="<c:url value='/jsps/cart/showitem.jsp'/>" id="jiesuan" class="jiesuan"></a>
 		</td>
-	</tr>
+	</tr> --%>
 </table>
-	<form id="form1" action="<c:url value='/jsps/cart/showitem.jsp'/>" method="post">
+	<%-- <form id="form1" action="<c:url value='/jsps/cart/showitem.jsp'/>" method="post">
 		<input type="hidden" name="cartItemIds" id="cartItemIds"/>
 		<input type="hidden" name="method" value="loadCartItems"/>
-	</form>
+	</form> --%>
 </c:otherwise>
 </c:choose>
   </body>

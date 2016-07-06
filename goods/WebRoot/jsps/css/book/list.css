@@ -1,17 +1,44 @@
-.pic { display: block; position: relative; margin-bottom: 3px; width: 200px; height: 200px; }
-.inner {overflow:hidden;text-overflow:ellipsis;word-break:keep-all;white-space:nowrap; border: solid 3px #fff; padding: 16px 16px 0; position: absolute; }
-ul{list-style-type: none;}
-li {float: left; width: 240px; height: 319px; line-height: 18px; position: relative; border-bottom: solid 1px #e5e5e5; }
-li div {margin-bottom:1px;margin-left: 10px;}
+.ta{
+	width:100%;
+	text-align:center;
+	border-collapse:collapse;
+	
+}
+table tr{
+	
+	width:100%;
+	text-align:center;
+}
 
+table tr .bookna{
+	width:40%;
+	border-bottom:1px solid red;
+	border-left:1px solid red;
+}
+.test{
+	border-top:1px solid red;
+	border-left:1px solid red;
+	border-bottom:1px solid red;
+	
+}
+#testright{
+	border-right:1px solid red;
+}
+table .td{
+	border-bottom:1px solid red;
+	border-left:1px solid red;
+}
+.bookna{
+	font:10pt 'ËÎÌו'; 
+}
+.tdpub{
+	border-bottom:1px solid red;
+	border-left:1px solid red;
+	border-right:1px solid red;
+}
+.price_n { padding-right: 10px; font-family: Arial; }
 
-body,ul, li, p,img, div { margin: 0; padding: 0; list-style-type: none; font-size: 12px;}
-.price {padding-bottom: 3px; color: #878787; }
-.price_n {color: #c30; font-weight: bold; padding-right: 10px; font-family: Arial; }
-.price_s {color: #c30; font-family: Arial; }
-.price_r {color: #878787; text-decoration: line-through; padding-right: 10px; font-family: Arial; }
-#bookname {text-decoration:underline; color:#555555; display: block; overflow: hidden; width: 200px; font-family: Arial; }
+#bookname { text-decoration:#90FF90;display: block; overflow: hidden; width: 200px; font-family: Arial; }
 #bookname:hover {color:#FF6600; }
-.inner a {color: #018BD3;}
+
 .inner a:hover {color:#FF6600; }
-.inner a:VISITED {color:#018BD3;}

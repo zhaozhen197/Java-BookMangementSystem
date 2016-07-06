@@ -12,6 +12,7 @@ import cn.itcast.commons.CommonUtils;
 import cn.itcast.servlet.BaseServlet;
 import cn.zanezz.book.dao.BookDao;
 import cn.zanezz.book.domain.Book;
+import cn.zanezz.book.service.BookService;
 import cn.zanezz.bookcart.domain.BookCartItem;
 import cn.zanezz.bookcart.service.BookCartService;
 import cn.zanezz.user.domain.User;
@@ -19,6 +20,7 @@ import cn.zanezz.user.service.exception.UserException;
 
 public class BookCartServlet extends BaseServlet {
 	private BookCartService bookCartService = new BookCartService();
+	BookService bookService = new BookService();
 	/*
 	 * 删除条目
 	 */
@@ -41,6 +43,15 @@ public class BookCartServlet extends BaseServlet {
 			req.setAttribute("code", "error");//将异常信息到request。通知msG.JSP
 			 return "f:/jsps/msg.jsp";
 		}
+		String bid = req.getParameter("bid");
+		Book tempBook = bookService.findByBid(bid); 
+		if (tempBook.getNum() - bookCartItem.getQuantity() <0) {
+			req.setAttribute("msg","库存数量不足！");
+			req.setAttribute("code", "error");//将异常信息到request。通知msG.JSP
+			 return "f:/jsps/msg.jsp";
+		}
+		book.setNum(tempBook.getNum()-bookCartItem.getQuantity());
+		
 		bookCartItem .setBook(book);
 		bookCartItem.setUser(user);
 		/*

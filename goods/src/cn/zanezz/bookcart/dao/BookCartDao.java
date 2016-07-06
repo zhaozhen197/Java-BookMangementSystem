@@ -58,7 +58,6 @@ public class BookCartDao {
 			String cartitemid = object.toString();
 			
 			BookCartItem bookCartItem = queryRunner.query(SQL, new BeanHandler<BookCartItem>(BookCartItem.class),cartitemid);
-			System.out.println(bookCartItem.getCartItemId());
 			Book book = findBook(bookCartItem.getBid());
 			bookCartItem .setBook(book);
 			int num =  bookCartItem.getBook().getNum();
@@ -133,7 +132,6 @@ public class BookCartDao {
 		 
 		 bookCartItem.setBook(book);
 		 bookCartItem.setUser(user);
-		 System.out.println(bookCartItem.getCartItemId());
 		 return bookCartItem;
 	}
 	

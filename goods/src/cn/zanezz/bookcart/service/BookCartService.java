@@ -36,8 +36,8 @@ public class BookCartService {
 			if (_bookCartItem == null) {
 				bookCartItem.setCartItemId(CommonUtils.uuid());
 				bookCartDao.addCartItem(bookCartItem);
-				int num = bookCartItem.getBook().getNum()- bookCartItem.getQuantity();
-				bookCartDao.updateNum(bookCartItem.getBook().getBid(), num);
+				
+				bookCartDao.updateNum(bookCartItem.getBook().getBid(), bookCartItem.getBook().getNum());
 			}
 			else {
 				bookCartItem.setCartItemId(_bookCartItem.getCartItemId());

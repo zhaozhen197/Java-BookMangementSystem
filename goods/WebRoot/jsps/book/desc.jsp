@@ -31,7 +31,7 @@
     <div class="divBookDesc">
 	    <ul>
 	    	<li>图书编号：${book.bid }</li>
-	    	<li>定价：<span class="price_n">&yen;${book.price }</span></li>
+	    	<li>定价：<span class="">&yen;${book.price }</span></li>
 	    </ul>
 		<hr class="hr1"/>
 		<table>
@@ -68,7 +68,7 @@
 				<input type="hidden" name="bid" value="${book.bid }"/>
   				我要借：<input id="cnt" style="width: 40px;text-align: center;" type="text" name="quantity" value="1"/>本
   			</form>
-  			<a id="btn" href="javascript:$('#form1').submit();"></a>
+  			 <a id="bwt" href="javascript:$('#form1').submit();"></a> 
   		</div>	
 	</div>
   </div>

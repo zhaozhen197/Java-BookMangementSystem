@@ -25,19 +25,23 @@
   </head>
   
   <body>
-
-<ul>
+<div>
+<table class="ta"  >
+  <tr class="tr">
+  		<td class="test">书名</td>
+  		<td class="test">定价</td>
+  		<td class="test">作者</td>
+  		<td class="test">出版社</td>
+  		<td class="test" id="testright">出版时间</td>
+  
+  </tr>
 <c:forEach items="${pb.beanlist }" var="book">
 
-  <li>
-  <div class="inner">
-    <a class="pic" href="<c:url value='/Bookservlet?method=loadByBid&bid=${book.bid }'/>"><img src="<c:url value='/${book.image_b }'/>" border="0"/></a>
-   
-	<p><a id="bookname" title="${book.bname }" href="<c:url value='/Bookservlet?method=loadByBid&bid=${book.bid }'/>">${book.bname }</a></p>
-	 <p class="price">
-		<span>定价：</span><span class="price_n">${book.price }</span>
-	</p>
-	<c:url value="/Bookservlet" var="authorUrl">
+
+  
+
+   <tr class="tr">
+   		<c:url value="/Bookservlet" var="authorUrl">
 		<c:param name="method" value="findByAuthor"></c:param>
 		<c:param name="author" value="${book.author }"></c:param>
 	</c:url>
@@ -45,22 +49,24 @@
 		<c:param name="method" value="findByPress"></c:param>
 		<c:param name="press" value="${book.press}"></c:param>
 	</c:url>
-	<%--  <p><span>作者：</span><a href="<c:url value='/Bookservlet?method=findByAuthor&auhtor='" id="author" name='P_zz' title='${book.author }'> ${book.author }</a></p>--%>
-	<p><span>作者：</span><a href="${authorUrl }" id="author" name='P_zz' title='${book.author }'> ${book.author }</a></p>
-	<p class="publishing">
+   		<td class="bookna" ><a title="${book.bname }" href="<c:url value='/Bookservlet?method=loadByBid&bid=${book.bid }'/>">${book.bname }</a></td>
+   		<td class="td"><p class="price"><span class="price_n">${book.price }</span></p></td>
+   		<td class="td"><a href="${authorUrl }" id="author" name='P_zz' title='${book.author }'> ${book.author }</a></td>
+		<td class="td"><p class="publishing"><a href="${pressUrl}">${book.press }</a></p></td>
+		<td class="tdpub" ><p class="publishing_time">${book.publishtime }</p></td>
+		
+   </tr>
+   
 	
-		<span>出 版 社：</span><a href="${pressUrl}">${book.press }</a>
-	</p>
-	<p class="publishing_time"><span>出版时间：</span>${book.publishtime }</p>
-  </div>
-  </li>
+
+
 </c:forEach>
 
   
 
 
-
-</ul>
+  </table>
+</div>
 
 <div style="float:left; width: 100%; text-align: center;">
 	<hr/>
